@@ -26,7 +26,7 @@ do
                         mv ../$j.00.xyz .
                         cp ../../../input-part*.inp .
                         neutral=`grep "PES" $j.00.xyz | awk '{print $6}'`
-                        grep -A12 "PES" $j.00.xyz | grep -v "PES" > geom.xyz
+                        grep -A12 "PES" $j.00.xyz | grep -v "PES" > geom.xyz   # "-A12" because this script is for uracil which has 12 atoms. Change accordingly.
                         for k in `seq 1 5`
                         do
                                 cat input-part1.inp geom.xyz input-part2.inp geom.xyz input-part3.inp > traj$i-$j-$neutral-$k.inp    # combining input file
